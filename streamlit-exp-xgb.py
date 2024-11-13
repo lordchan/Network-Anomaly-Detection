@@ -9,7 +9,7 @@ from io import BytesIO
 # Loading the model from GitHub
 @st.cache_data
 def load_model_from_github():
-    url = "https://github.com/username/repo_name/path_to_model.pkl"  # Replace with your model's GitHub URL
+    url = "https://github.com/lordchan/Network-Anomaly-Detection/blob/main/xgboost_model.pkl"  # Replace with your model's GitHub URL
     response = requests.get(url)
     model = pickle.load(BytesIO(response.content))
     return model
@@ -36,26 +36,3 @@ user_input = pd.DataFrame({
     "Employment_Status": [1 if employment_status == "Employed" else 0]  # Example encoding
 })
 
-# Predict button
-if st.button("Predict"):
-    prediction = model.predict(user_input)[0]  # Assuming binary output (0 or 1)
-    if prediction == 1:
-        st.success("🎉 Congratulations! The model predicts a positive outcome!")
-    else:
-        st.error("🔴 Unfortunately, the model predicts a negative outcome.")
-
-# Add some styling
-st.markdown("""
-<style>
-    .stButton button {
-        background-color: #4CAF50;
-        color: white;
-        border-radius: 8px;
-    }
-    .stTitle {
-        font-size: 2.5em;
-        color: #FF6347;
-        font-weight: bold;
-    }
-</style>
-""", unsafe_allow_html=True)
