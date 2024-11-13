@@ -9,7 +9,7 @@ from io import BytesIO
 # Loading the model from GitHub
 @st.cache_data
 def load_model_from_github():
-    url = "https://github.com/lordchan/Network-Anomaly-Detection/blob/main/xgboost_model.pkl"  # Replace with your model's GitHub URL
+    url = "https://github.com/lordchan/Network-Anomaly-Detection/xgboost_model.pkl"  # Replace with your model's GitHub URL
     response = requests.get(url)
     model = pickle.load(BytesIO(response.content))
     return model
