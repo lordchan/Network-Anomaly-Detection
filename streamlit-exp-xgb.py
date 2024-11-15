@@ -34,9 +34,9 @@ numcompromised = st.slider(" Number of 'compromised' conditions", min_value = 0,
 count = st.slider("Number of connections to the same destination host as the current connection in the past 2 seconds.", min_value = 0, max_value = 511)
 srvcount = st.slider("Number of connections to the same service as the current connection in the past two seconds.", min_value = 0, max_value = 511)
 lastflag = st.slider("How many times has the connection been flagged", min_value = 0, max_value = 21)
-dsthostserrorrate = st.slider("Destination host server error rate:", min_value = 0, max_value = 1)
+dsthostserrorrate = st.slider("Destination host server error rate:", min_value = 0, max_value = 1, step = 0.01)
 loggedin = st.radio("Login Status:", options=[0, 1], index=0)
-diffsrvrate = st.slider("Percentage of connections that were to different services, among the connections aggregated in count:", min_value = 0, max_value = 1)
+diffsrvrate = st.slider("Percentage of connections that were to different services, among the connections aggregated in count:", min_value = 0, max_value = 1, step = 0.01)
 
 # Convert user input into a DataFrame for the model
 user_input = pd.DataFrame({
