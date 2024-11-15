@@ -34,14 +34,22 @@ numcompromised = st.slider(" Number of 'compromised' conditions", min_value = 0,
 count = st.slider("Number of connections to the same destination host as the current connection in the past 2 seconds.", min_value = 0, max_value = 511)
 srvcount = st.slider("Number of connections to the same service as the current connection in the past two seconds.", min_value = 0, max_value = 511)
 lastflag = st.slider("How many times has the connection been flagged", min_value = 0, max_value = 21)
-dsthostserrorrate = st.radio("Destination host server error rate:", options=[0, 1], index=0)
-score = st.slider("Credit Score", 300, 850, 600)
+dsthostserrorrate = st.slider("Destination host server error rate:", min_value = 0, max_value = 1)
+loggedin = st.radio("Login Status:", options=[0, 1], index=0)
+diffsrvrate = st.slider("Percentage of connections that were to different services, among the connections aggregated in count:", min_value = 0, max_value = 1)
 
 # Convert user input into a DataFrame for the model
 user_input = pd.DataFrame({
-    "Age": [age],
-    "Income": [income],
-    "Credit_Score": [score],
-    "Employment_Status": [1 if employment_status == "Employed" else 0]  # Example encoding
+    "protocoltype": [protocoltype],
+    "service": [service],
+    "srcbytes": [srcbytes],
+    "dstbytes": [dstbytes],
+    "numcompromised": [numcompromised],
+    "count": [count],
+    "srvcount": [srvcount],
+    "lastflag": [lastflag],
+    "dsthostserrorrate": [dsthostserrorrate],
+    "loggedin": [loggedin],
+    "diffsrvrate": [diffsrvrate]
 })
 
