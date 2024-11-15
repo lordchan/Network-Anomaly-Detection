@@ -24,19 +24,15 @@ st.write("Enter the details of your network and predict the chances of getting a
 # Define the input fields
 # Adjust these according to the model's features
 
-col1, col2 = st.columns(2)
+protocoltype = st.radio("Protocol used in the connection:", options=["tcp", "udp", "icmp"], index=0)
+col1, col2, col3 = st.columns(3)
 with col1:
-    protocoltype = st.radio("Protocol used in the connection:", options=["tcp", "udp", "icmp"], index=0) 
-
-with col2:
     service = st.selectbox("Destination network service used.", ['http', 'private', 'domain_u', 'smtp', 'ftp_data', 'eco_i', 'other',
        'ecr_i', 'telnet', 'finger'])
-
-col3, col4 = st.columns(2)
-with col3:
+with col2:
     srcbytes = st.number_input("Number of data bytes transferred from source to destination", min_value = 0)
 
-with col4:
+with col3:
     dstbytes = st.number_input("Number of data bytes transferred from destination to source", min_value = 0)
 
 numcompromised = st.slider(" Number of 'compromised' conditions", min_value = 0, max_value = 7479)
