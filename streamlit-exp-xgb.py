@@ -52,4 +52,12 @@ user_input = pd.DataFrame({
     "loggedin": [1 if loggedin=="Logged in" else 0],
     "diffsrvrate": [diffsrvrate]
 })
-
+if st.button("Predict"):
+    # Perform prediction
+    prediction = model.predict(user_input)[0]  # Assuming model output is binary (0 or 1)
+    
+    # Display the prediction result
+    if prediction == 1:
+        st.success("⚠️ Network is under attack! Beware")
+    else:
+        st.error("No attack, you are safe 😌")
