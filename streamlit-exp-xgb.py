@@ -32,8 +32,13 @@ with col2:
     service = st.selectbox("Destination network service used.", ['http', 'private', 'domain_u', 'smtp', 'ftp_data', 'eco_i', 'other',
        'ecr_i', 'telnet', 'finger'])
 
-srcbytes = st.number_input("Number of data bytes transferred from source to destination", min_value = 0)
-dstbytes = st.number_input("Number of data bytes transferred from destination to source", min_value = 0)
+col3, col4 = st.columns(2)
+with col3:
+    srcbytes = st.number_input("Number of data bytes transferred from source to destination", min_value = 0)
+
+with col4:
+    dstbytes = st.number_input("Number of data bytes transferred from destination to source", min_value = 0)
+
 numcompromised = st.slider(" Number of 'compromised' conditions", min_value = 0, max_value = 7479)
 count = st.slider("Number of connections to the same destination host as the current connection in the past 2 seconds.", min_value = 0, max_value = 511)
 srvcount = st.slider("Number of connections to the same service as the current connection in the past two seconds.", min_value = 0, max_value = 511)
