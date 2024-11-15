@@ -6,8 +6,6 @@ import requests
 import pickle
 from io import BytesIO
 
-st.title("My Project Dashboard")
-
 # Sidebar Content
 st.sidebar.title("Project Index")
 
@@ -19,8 +17,18 @@ st.sidebar.write("This project is designed to [briefly explain your project here
 st.sidebar.subheader("Useful Links")
 st.sidebar.markdown("[Complete GitHub code](https://github.com/lordchan/Network-Anomaly-Detection)", unsafe_allow_html=True)
 st.sidebar.markdown("[Medium Blog](https://medium.com/@chinni030899/network-anomaly-detection-using-xgboost-an-end-to-end-project-836e87369833)", unsafe_allow_html=True)
-st.sidebar.markdown("[Connect on LinkedIn](https://www.linkedin.com/in/chanakya-gadwal/)", unsafe_allow_html=True)
-
+st.sidebar.markdown("[Connect with me on LinkedIn](https://www.linkedin.com/in/chanakya-gadwal/)", unsafe_allow_html=True)
+st.sidebar.markdown("[Tableau Dashboard](https://public.tableau.com/app/profile/chanakya.g.r/viz/ProjectScaler/Dashboard1)", unsafe_allow_html=True)
+with st.sidebar.expander("About the Project"):
+    st.write(
+        """
+        In today's digital age, network security is paramount. Our project focuses on detecting unusual 
+        network behaviors to prevent data breaches and cyber-attacks in real-time. We analyzed a huge dataset, made a Tableau dashboard, 
+        did Hypothesis testing, built predictive models, and deployed our solution in Streamlit to help you
+        identify threats before they cause harm. Just provide some basic details about the connection and the
+        model will automatically calculate the probability of getting attacked using XGBoost model and give you the output.
+        """
+    )
 
 # Loading the model from GitHub
 @st.cache_data
