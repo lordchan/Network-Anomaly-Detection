@@ -31,10 +31,6 @@ with col1:
 with col2:
     service = st.selectbox("Destination network service used.", ['http', 'private', 'domain_u', 'smtp', 'ftp_data', 'eco_i', 'other',
        'ecr_i', 'telnet', 'finger'])
-    
-protocoltype = st.selectbox("Protocol used in the connection", ["tcp", "udp", "icmp"])
-service = st.selectbox("Destination network service used.", ['http', 'private', 'domain_u', 'smtp', 'ftp_data', 'eco_i', 'other',
-       'ecr_i', 'telnet', 'finger'])
 
 srcbytes = st.number_input("Number of data bytes transferred from source to destination", min_value = 0)
 dstbytes = st.number_input("Number of data bytes transferred from destination to source", min_value = 0)
