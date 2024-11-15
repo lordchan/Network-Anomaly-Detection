@@ -6,6 +6,22 @@ import requests
 import pickle
 from io import BytesIO
 
+st.title("My Project Dashboard")
+
+# Sidebar Content
+st.sidebar.title("Project Index")
+
+# Project description
+st.sidebar.subheader("About This Project")
+st.sidebar.write("This project is designed to [briefly explain your project here].")
+
+# Links
+st.sidebar.subheader("Useful Links")
+st.sidebar.markdown("[Complete GitHub code](https://github.com/lordchan/Network-Anomaly-Detection)", unsafe_allow_html=True)
+st.sidebar.markdown("[Medium Blog](https://medium.com/@chinni030899/network-anomaly-detection-using-xgboost-an-end-to-end-project-836e87369833)", unsafe_allow_html=True)
+st.sidebar.markdown("[Connect on LinkedIn](https://www.linkedin.com/in/chanakya-gadwal/)", unsafe_allow_html=True)
+
+
 # Loading the model from GitHub
 @st.cache_data
 def load_model_from_github():
