@@ -74,8 +74,7 @@ if st.button("Predict"):
     # Perform prediction
     prediction = model.predict(transform_(user_input))[0] 
     
-    # Display the prediction result
     if prediction == 1:
-        st.error("fgsgsfeffsgt")
+        st.error("⚠️ Network is under attack! Beware")
     else:
-        st.success("sryujtyj")
+        st.success("No attack, you are safe 😌")
