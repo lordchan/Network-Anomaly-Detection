@@ -76,6 +76,6 @@ if st.button("Predict"):
     
     # Display the prediction result
     if prediction == 1:
-        st.error("⚠️ Network is under attack! Beware")
+        st.error("fgsgsfeffsgt")
     else:
-        st.success("No attack, you are safe 😌")
+        st.success("sryujtyj")
