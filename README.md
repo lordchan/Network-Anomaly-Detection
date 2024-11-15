@@ -10,6 +10,11 @@ In the field of cybersecurity, network anomaly detection is crucial for identify
 3. **Operational Continuity**: Quick anomaly detection helps prevent disruptions in service.
 4. **Regulatory Compliance**: Anomaly detection helps organizations meet stringent data security and privacy standards.
 
+## Important Links
+[Medium Blog](https://medium.com/@chinni030899/network-anomaly-detection-using-xgboost-an-end-to-end-project-836e87369833)
+[Interact realtime with the model on Streamlit](https://app-xgb-prediction.streamlit.app/)
+[Tableau Dashboard](https://public.tableau.com/app/profile/chanakya.g.r/viz/ProjectScaler/Dashboard1)
+
 ---
 
 ## Project Overview
