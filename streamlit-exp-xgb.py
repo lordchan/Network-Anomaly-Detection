@@ -24,6 +24,14 @@ st.write("Enter the details of your network and predict the chances of getting a
 # Define the input fields
 # Adjust these according to the model's features
 
+col1, col2 = st.columns(2)
+with col1:
+    protocoltype = st.selectbox("Protocol used in the connection", ["tcp", "udp", "icmp"])
+
+with col2:
+    service = st.selectbox("Destination network service used.", ['http', 'private', 'domain_u', 'smtp', 'ftp_data', 'eco_i', 'other',
+       'ecr_i', 'telnet', 'finger'])
+    
 protocoltype = st.selectbox("Protocol used in the connection", ["tcp", "udp", "icmp"])
 service = st.selectbox("Destination network service used.", ['http', 'private', 'domain_u', 'smtp', 'ftp_data', 'eco_i', 'other',
        'ecr_i', 'telnet', 'finger'])
@@ -35,7 +43,7 @@ count = st.slider("Number of connections to the same destination host as the cur
 srvcount = st.slider("Number of connections to the same service as the current connection in the past two seconds.", min_value = 0, max_value = 511)
 lastflag = st.slider("How many times has the connection been flagged", min_value = 0, max_value = 21)
 dsthostserrorrate = st.slider("Destination host server error rate:", min_value = 0.0, max_value = 1.0, step = 0.01)
-loggedin = st.radio("Login Status:", options=[0, 1], index=0)
+loggedin = st.radio("Login Status:", options=["Logged out", "Logged in"], index="Logged out")
 diffsrvrate = st.slider("Percentage of connections that were to different services, among the connections aggregated in count:", min_value = 0.0, max_value = 1.0, step = 0.01)
 
 # Convert user input into a DataFrame for the model
