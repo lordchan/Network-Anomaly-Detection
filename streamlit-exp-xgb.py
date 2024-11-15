@@ -1,7 +1,7 @@
 # Importing required libraries
 import streamlit as st
 import pandas as pd
-import xgboost as xgb
+from xgboost import XGBClassifier
 import requests
 import pickle
 from io import BytesIO
@@ -54,7 +54,7 @@ user_input = pd.DataFrame({
 })
 if st.button("Predict"):
     # Perform prediction
-    prediction = model.predict(user_input)[0]  # Assuming model output is binary (0 or 1)
+    prediction = 1
     
     # Display the prediction result
     if prediction == 1:
