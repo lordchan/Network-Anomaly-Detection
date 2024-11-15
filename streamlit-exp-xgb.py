@@ -15,8 +15,18 @@ def load_model_from_github():
     model = pickle.loads(response.content)
     return model
 
-# Load the model
+# Loading the categoric encoding table from GitHub
+@st.cache_data
+def load_encoder_from_github():
+    url = "https://github.com/lordchan/Network-Anomaly-Detection/blob/main/target_enc.pkl?raw=true"  # Replace with your model's GitHub URL
+    response = requests.get(url)
+    response.raise_for_status()  # This will raise an error if the file is not accessible
+    enc = pickle.loads(response.content)
+    return enc
+
+# Load the model and enc
 model = load_model_from_github()
+enc = load_encoder_from_github()
 
 # Streamlit UI
 st.title("🤖 Network Anomaly Detection using XGBoost")
@@ -52,12 +62,20 @@ user_input = pd.DataFrame({
     "loggedin": [1 if loggedin=="Logged in" else 0],
     "diffsrvrate": [diffsrvrate]
 })
+
+def transform_(test):
+    test['proto_service'] = test[['protocoltype', 'service']].apply(lambda x: x[0] + x[1], axis = 1)
+    test['diffsrvcount_'] = test['diffsrvrate']*test['count']
+    test = test.merge(enc, how = 'left', left_on = 'proto_service', right_on = 'proto_service').drop(columns = 'proto_service').rename(columns = {'attack?': 'proto_service'})
+    test.drop(columns = ['protocoltype', 'service', 'diffsrvrate'], inplace = True)
+    return test
+
 if st.button("Predict"):
     # Perform prediction
-    prediction = model.predict(user_input)[0] 
+    prediction = model.predict(transform_(user_input))[0] 
     
     # Display the prediction result
     if prediction == 1:
-        st.success("⚠️ Network is under attack! Beware")
+        st.error("⚠️ Network is under attack! Beware")
     else:
-        st.error("No attack, you are safe 😌")
+        st.success("No attack, you are safe 😌")
