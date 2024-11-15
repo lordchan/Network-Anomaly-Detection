@@ -52,24 +52,6 @@ user_input = pd.DataFrame({
     "loggedin": [1 if loggedin=="Logged in" else 0],
     "diffsrvrate": [diffsrvrate]
 })
-st.markdown(
-    """
-    <style>
-    div.stButton > button {
-        background-color: #FF6347;  /* Tomato Red */
-        color: white;
-        border-radius: 8px;
-        border: none;
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-    div.stButton > button:hover {
-        background-color: #FF4500;  /* Darker Red */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 if st.button("Predict"):
     # Perform prediction
     prediction = 1
