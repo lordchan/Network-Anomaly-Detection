@@ -19,15 +19,23 @@ def load_model_from_github():
 model = load_model_from_github()
 
 # Streamlit UI
-st.title("🚀 Fun and Interactive XGBoost Predictor")
-st.write("Enter your details below to get predictions using our XGBoost model!")
-
+st.title("🤖 Network Anomaly Detection using XGBoost")
+st.write("Enter the details of your network and predict the chances of getting attacked with 99% accuracy!")
 # Define the input fields
 # Adjust these according to the model's features
-age = st.slider("Age", 18, 100, 25)
-income = st.number_input("Income (in USD)", 0, 100000, 50000)
+
+protocoltype = st.selectbox("Protocol used in the connection", ["tcp", "udp", "icmp"])
+service = st.selectbox("Destination network service used.", ['http', 'private', 'domain_u', 'smtp', 'ftp_data', 'eco_i', 'other',
+       'ecr_i', 'telnet', 'finger'])
+
+srcbytes = st.number_input("Number of data bytes transferred from source to destination", min_value = 0)
+dstbytes = st.number_input("Number of data bytes transferred from destination to source", min_value = 0)
+numcompromised = st.slider(" Number of 'compromised' conditions", min_value = 0, max_value = 7479)
+count = st.slider("Number of connections to the same destination host as the current connection in the past 2 seconds.", min_value = 0, max_value = 511)
+srvcount = st.slider("Number of connections to the same service as the current connection in the past two seconds.", min_value = 0, max_value = 511)
+lastflag = st.slider("How many times has the connection been flagged", min_value = 0, max_value = 21)
+dsthostserrorrate = st.radio("Destination host server error rate:", options=[0, 1], index=0)
 score = st.slider("Credit Score", 300, 850, 600)
-employment_status = st.selectbox("Employment Status", ["Employed", "Unemployed", "Student"])
 
 # Convert user input into a DataFrame for the model
 user_input = pd.DataFrame({
