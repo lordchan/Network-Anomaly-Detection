@@ -27,7 +27,7 @@ st.write("Enter the details of your network and predict the chances of getting a
 protocoltype = st.radio("Protocol used in the connection:", options=["tcp", "udp", "icmp"], index=0)
 col1, col2, col3 = st.columns(3)
 with col1:
-    service = st.selectbox("Destination network service used.                              ", ['http', 'private', 'domain_u', 'smtp', 'ftp_data', 'eco_i', 'other',
+    service = st.selectbox("Destination network                                    service used.", ['http', 'private', 'domain_u', 'smtp', 'ftp_data', 'eco_i', 'other',
        'ecr_i', 'telnet', 'finger'])
 with col2:
     srcbytes = st.number_input("Number of data bytes transferred from source to destination", min_value = 0)
