@@ -12,11 +12,11 @@ st.sidebar.title("Project Index")
 with st.sidebar.expander("About the Project"):
     st.write(
         """
-        In today's digital age, network security is paramount. Our project focuses on detecting unusual 
+        Our project focuses on detecting unusual 
         network behaviors to prevent data breaches and cyber-attacks in real-time. We analyzed a huge dataset, made a Tableau dashboard, 
         did Hypothesis testing, built predictive models, and deployed our solution in Streamlit to help you
         identify threats before they cause harm. Just provide some basic details about the connection and the
-        model will automatically calculate the probability of getting attacked using XGBoost model and give you the output.
+        model will give you the output.
         """
     )
 
@@ -24,8 +24,8 @@ with st.sidebar.expander("About the Project"):
 st.sidebar.subheader("Useful Links")
 st.sidebar.markdown("[Complete GitHub code](https://github.com/lordchan/Network-Anomaly-Detection)", unsafe_allow_html=True)
 st.sidebar.markdown("[Medium Blog](https://medium.com/@chinni030899/network-anomaly-detection-using-xgboost-an-end-to-end-project-836e87369833)", unsafe_allow_html=True)
-st.sidebar.markdown("[Connect with me on LinkedIn](https://www.linkedin.com/in/chanakya-gadwal/)", unsafe_allow_html=True)
 st.sidebar.markdown("[Tableau Dashboard](https://public.tableau.com/app/profile/chanakya.g.r/viz/ProjectScaler/Dashboard1)", unsafe_allow_html=True)
+st.sidebar.markdown("[Connect with me on LinkedIn](https://www.linkedin.com/in/chanakya-gadwal/)", unsafe_allow_html=True)
 
 
 # Loading the model from GitHub
