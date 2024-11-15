@@ -54,7 +54,7 @@ user_input = pd.DataFrame({
 })
 if st.button("Predict"):
     # Perform prediction
-    prediction = 1
+    prediction = model.predict(user_input)[0] 
     
     # Display the prediction result
     if prediction == 1:
